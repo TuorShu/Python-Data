@@ -25,8 +25,4 @@ Currently developing my skills in data manipulation, analysis, and reporting thr
 
 More projects coming soon.
 
-## Approach
-
----
-
 *Learning by building.*
