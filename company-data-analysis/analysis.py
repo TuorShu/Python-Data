@@ -2,14 +2,22 @@ import pandas as pd
 
 df = pd.read_csv("company-data-analysis/data/company_data_1000.csv")
 
-kosul1 = df.groupby("Sehir").agg(
-    toplam_adet=("Adet", "sum"),
-    ort_satis_adedi=("Adet", "mean"),
-    en_yuksek_urun_fiyat=("BirimFiyat", "max"),
-    islem_sayisi=("Adet", "count")
-)
-kosul2 = df.groupby("Sehir").agg(
-    ort_urun_fiyat=("BirimFiyat", "mean")
+temsilciler = pd.DataFrame({
+    "Temsilci": [
+        "Ahmet", "Mehmet", "Ayse", "Zeynep",
+        "Elif", "Can", "Mert", "Derya"
+    ],
+    "Bolge": [
+        "Marmara", "Ege", "Akdeniz", "İç Anadolu",
+        "Karadeniz", "Marmara", "Ege", "Akdeniz"
+    ]
+})
+
+merged_temsilciler = pd.merge(
+    df,
+    temsilciler,
+    on="Temsilci",
+    how="left"
 )
 
-print(kosul1)
+print(merged_temsilciler["Bolge"].isna().sum())
