@@ -17,7 +17,6 @@ merged_temsilciler = pd.merge(
     df,
     temsilciler,
     on="Temsilci",
-    how="left"
+    how="right"
 )
-
-print(merged_temsilciler["Bolge"].isna().sum())
+print(merged_temsilciler)
