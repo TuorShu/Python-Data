@@ -7,23 +7,23 @@ Fiyatlar = pd.DataFrame({
         12,
         6,
         24,
-        12,
-        24,
-        16
+        6,
+        6,
+        24
     ],
     "Fiyat": [
+        28000,
+        3500,
+        72000,
+        6000,
         2000,
-        1500,
-        3000,
-        1000,
-        2500,
-        2000
+        109000
     ],
     "Tedarikci": [
         "Samsung",
         "Logitech",
         "Lenovo",
-        "",
+        "Logitech",
         "HyperX",
         "Apple"
     ]
@@ -42,7 +42,7 @@ urunler = pd.DataFrame({
         "Samsung",
         "Logitech",
         "Lenovo",
-        "",
+        "Logitech",
         "HyperX",
         "Apple"
     ],
@@ -50,14 +50,14 @@ urunler = pd.DataFrame({
         24,
         12,
         24,
+        6,
         12,
-        24,
-        16
+        36
     ]
 })
 
 birlesmis = pd.merge(Fiyatlar,urunler,
-          how="inner", on="Tedarikci"
+          how="left", on="Tedarikci"
           )
 
 print(birlesmis.head(10))
