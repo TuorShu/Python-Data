@@ -2,5 +2,5 @@ import pandas as pd
 
 df = pd.read_csv("company-data-analysis/data/company_data_1000.csv")
 
-clearemptyrows = df.dropna
-print(clearemptyrows)
+fill_BirimFiyat = df["BirimFiyat"].fillna(df["BirimFiyat"].mean())
+print(fill_BirimFiyat)
